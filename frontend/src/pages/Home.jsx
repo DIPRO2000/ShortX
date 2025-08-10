@@ -12,7 +12,7 @@ export default function Home() {
     setShortUrl("");
 
     try {
-      const res = await axios.post("http://localhost:3000/api/shorten", { url });
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/shorten`, { url });
       setShortUrl(res.data.shortUrl);
     } catch (err) {
       setError("Please enter a valid URL");
